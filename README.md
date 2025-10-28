@@ -99,7 +99,7 @@ fe-mini-guestbook-app/
    # Create .env.local file for development
    echo "NEXT_PUBLIC_API_URL=http://localhost:3001/api" > .env.local
    echo "NEXT_PUBLIC_WS_URL=ws://localhost:3001" >> .env.local
-   
+
    # For production, the app automatically uses:
    # NEXT_PUBLIC_API_URL=https://be-mini-guestbook-app-production.up.railway.app/api
    # NEXT_PUBLIC_WS_URL=wss://be-mini-guestbook-app-production.up.railway.app
