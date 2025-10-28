@@ -4,9 +4,10 @@ A modern, responsive guestbook application built with Next.js, TypeScript, and s
 
 ## Live Demo
 
-- **Frontend**: [http://localhost:3000](http://localhost:3000) (Development)
-- **Backend API**: [http://localhost:3001](http://localhost:3001) (Development)
-- **API Documentation**: [http://localhost:3001/api-docs](http://localhost:3001/api-docs) (Swagger UI)
+- **Frontend**: [https://fe-mini-guestbook-app-production.up.railway.app/](https://fe-mini-guestbook-app-production.up.railway.app/) (Production)
+- **Backend API**: [https://be-mini-guestbook-app-production.up.railway.app/api](https://be-mini-guestbook-app-production.up.railway.app/api) (Production)
+- **API Documentation**: [https://be-mini-guestbook-app-production.up.railway.app/api-docs](https://be-mini-guestbook-app-production.up.railway.app/api-docs) (Swagger UI)
+- **WebSocket**: `wss://be-mini-guestbook-app-production.up.railway.app` (Production)
 
 ## Features
 
@@ -95,9 +96,13 @@ fe-mini-guestbook-app/
 3. **Set up environment variables**:
 
    ```bash
-   # Create .env.local file
+   # Create .env.local file for development
    echo "NEXT_PUBLIC_API_URL=http://localhost:3001/api" > .env.local
    echo "NEXT_PUBLIC_WS_URL=ws://localhost:3001" >> .env.local
+   
+   # For production, the app automatically uses:
+   # NEXT_PUBLIC_API_URL=https://be-mini-guestbook-app-production.up.railway.app/api
+   # NEXT_PUBLIC_WS_URL=wss://be-mini-guestbook-app-production.up.railway.app
    ```
 
 4. **Start the development server**:
@@ -216,10 +221,11 @@ const { isConnected } = useWebSocket(eventId);
 
 ### Backend Requirements
 
-- **Base URL**: `http://localhost:3001/api`
-- **WebSocket URL**: `ws://localhost:3001`
+- **Base URL**: `https://be-mini-guestbook-app-production.up.railway.app/api` (Production)
+- **WebSocket URL**: `wss://be-mini-guestbook-app-production.up.railway.app` (Production)
+- **Development URLs**: `http://localhost:3001/api` and `ws://localhost:3001`
 - **Authentication**: None (for demo purposes)
-- **CORS**: Configured for localhost:3000
+- **CORS**: Configured for both localhost:3000 and production domain
 
 ### Key Endpoints
 
